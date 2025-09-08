@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Echanj Plus</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #0a1f44;
+    color: white;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    background: rgba(255,255,255,0.1);
+    padding: 25px;
+    border-radius: 12px;
+    width: 95%;
+    max-width: 700px;
+    text-align: center;
+  }
+
+  .logo {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-style: italic;
+    color: #FFD700;
+    margin-bottom: 20px;
+  }
+
+  .section {
+    text-align: left;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+  }
+
+  .section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: #FFD700;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .section-title span {
+    font-size: 20px;
+  }
+
+  .section-content {
+    display: none;
+    margin-top: 5px;
+  }
+
+  p, li {
+    margin: 8px 0;
+    line-height: 1.5;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  .social-icons img {
+    width: 50px;
+    margin: 0 10px;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  button {
+    background: #FFD700;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  button:hover {
+    background: #FFA500;
+  }
+
+  a {
+    color: #FFD700;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #FFA500;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <!-- Logo Sit la -->
+    <img src="https://i.postimg.cc/L8VgxQq9/image1-removebg-preview.png" alt="Echanj Plus" class="logo">
+
+    <h1>About Echanj Plus</h1>
+
+    <!-- Definisyon -->
+    <div class="section">
+      <div class="section-title" onclick="toggleSection(this)">
+        Definisyon <span>+</span>
+      </div>
+      <div class="section-content">
+        <p><strong>Echanj Plus</strong> se yon platfòm dijital ki fèt espesyalman pou itilizatè ayisyen sèlman. Li pèmèt itilizatè yo fasilman voye minit telefòn, jere peyman, epi swiv tranzaksyon yo nan yon fason rapid, senp, epi sekirize. Chak itilizatè gen yon UID inik ki garanti tout tranzaksyon yo byen idantifye.</p>
+      </div>
+    </div>
+
+    <!-- Objektif -->
+    <div class="section">
+      <div class="section-title" onclick="toggleSection(this)">
+        Objektif <span>+</span>
+      </div>
+      <div class="section-content">
+        <ul>
+          <li>Fasilite voye minit soti nan kont itilizatè yo.</li>
+          <li>Jere balans atravè Sale Balance ak Withdraw Balance.</li>
+          <li>Ofri tablodbò pwofil ak tranzaksyon itilizatè yo.</li>
+          <li>Asire tout tranzaksyon yo sekirize ak idantifye ak UID inik.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sèvis -->
+    <div class="section">
+      <div class="section-title" onclick="toggleSection(this)">
+        Sèvis yo ofri <span>+</span>
+      </div>
+      <div class="section-content">
+        <ul>
+          <li>Voye minit pou Digicel ak Natcom.</li>
+          <li>Transfè minit soti nan Home → Sale Balance → Withdraw Balance.</li>
+          <li>Retire lajan atravè Mon Cash, Natcash, Paryaj Lakay, Paryaj Pam, ak Biwo ARS.</li>
+          <li>Frè sistèm kalkile otomatikman (14.5%).</li>
+          <li>Suivi detay tranzaksyon nan tablodbò.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Kontakte -->
+    <div class="section">
+      <div class="section-title" onclick="toggleSection(this)">
+        Kontakte Sistèm lan <span>+</span>
+      </div>
+      <div class="section-content">
+        <p>WhatsApp: <a href="https://wa.me/50947111123" target="_blank">+50947111123</a></p>
+        <p>Email: <a href="mailto:echanjplus@gmail.com">echanjplus@gmail.com</a></p>
+      </div>
+    </div>
+
+    <!-- Réseaux Sosyal -->
+    <div class="section">
+      <div class="section-title" onclick="toggleSection(this)">
+        Réseaux Sosyal <span>+</span>
+      </div>
+      <div class="section-content">
+        <div class="social-icons">
+          <!-- Logo Facebook -->
+          <a href="https://www.facebook.com/share/19vRHA5rEf/" target="_blank">
+            <img src="https://i.postimg.cc/DzdnKRrD/image1.png" alt="Facebook">
+          </a>
+          <!-- Logo YouTube -->
+          <a href="https://youtube.com/@echanjplus?si=yijvBDlCmYvjtSny" target="_blank">
+            <img src="https://i.postimg.cc/L8VgxQq9/image1-removebg-preview.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bouton retou sou Home -->
+    <button onclick="window.location.href='home.html'">Retour sou Home</button>
+  </div>
+
+<script>
+  function toggleSection(titleElement) {
+    const content = titleElement.nextElementSibling;
+    const symbol = titleElement.querySelector("span");
+    if(content.style.display === "block") {
+      content.style.display = "none";
+      symbol.textContent = "+";
+    } else {
+      content.style.display = "block";
+      symbol.textContent = "−";
+    }
+  }
+</script>
+</body>
+</html>
