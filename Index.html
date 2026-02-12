@@ -3,174 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Echanj Plus - Sistèm Sekirize</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; padding: 20px; }
-        .container { width: 100%; max-width: 420px; background: white; padding: 20px; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; }
-        
-        /* BALANS */
-        .balance-card { background: #1a1a1a; color: #00ff88; padding: 30px; border-radius: 20px; margin-bottom: 25px; border: 2px solid #333; }
-        #user-balance { font-size: 3rem; font-weight: bold; display: block; }
-        .gdes { font-size: 1rem; color: #aaa; }
-
-        /* SEKSYON ECHANJ */
-        .section-box { background: #fff; border: 1px solid #eee; padding: 15px; border-radius: 20px; margin-bottom: 20px; }
-        .btn-grid { display: flex; gap: 10px; margin-top: 10px; }
-        .card-btn { flex: 1; padding: 15px; border-radius: 12px; cursor: pointer; font-weight: bold; color: white; border: none; font-size: 0.9rem; }
-        .digicel { background: #ff0000; }
-        .natcom { background: #ff8c00; }
-
-        /* LOGO RETRÈ (VÈ E BLAN) */
-        .withdraw-logo-btn {
-            background: #28a745; color: white; border: 4px solid #fff;
-            width: 120px; height: 120px; border-radius: 50%; margin: 20px auto;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            cursor: pointer; box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
-            transition: 0.3s;
-        }
-        .withdraw-logo-btn:active { transform: scale(0.9); }
-        .withdraw-logo-btn span { font-weight: bold; font-size: 1.2rem; }
-
-        input { width: 90%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 10px; outline: none; }
-        .confirm-btn { width: 100%; padding: 15px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; color: white; }
-        
-        .hidden-panel { display: none; padding: 15px; background: #f9f9f9; border-radius: 15px; margin-top: 10px; border: 1px solid #28a745; }
-    </style>
+    <title>Echanj Plus - Sèvis Rapid</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <img src="https://i.postimg.cc/vTtVtB8P/20260205-163353-removebg-preview.png" style="width:100px;">
+        <img src="https://i.postimg.cc/vTtVtB8P/20260205-163353-removebg-preview.png" alt="Logo" class="main-logo">
 
         <div class="balance-card">
-            <small>BALANS OU</small>
+            <span class="label">BALANS DISPONIB</span>
             <span id="user-balance">0.00</span>
-            <span class="gdes">Gourdes (HTG)</span>
+            <small>Gourdes (HTG)</small>
         </div>
 
-        <div class="section-box">
-            <strong style="color: #555;">➕ FE YON ECHANJ</strong>
-            <div class="btn-grid">
-                <button class="card-btn digicel" onclick="showEchanj('digicel')">Echanj-Digi</button>
-                <button class="card-btn natcom" onclick="showEchanj('natcom')">echanj-Nat</button>
-            </div>
-
-            <div id="panel-echanj" class="hidden-panel">
-                <h4 id="echanj-title">Minit</h4>
-                <input type="number" id="minit-amount" placeholder="Konbe minit?">
-                <p id="calc-res" style="color:#28a745; font-weight:bold;">W ap resevwa: 0.00 G</p>
-                <button class="confirm-btn" style="background:#28a745" onclick="processEchanj()">KONFIME & OUVRI APEL</button>
+        <div class="box" id="box-digicel">
+            <span class="title">Echanj Digicel</span>
+            <button class="btn-digi" onclick="toggleBox('input-digi')">Echanj-Digi</button>
+            <div id="input-digi" class="input-group">
+                <input type="number" id="qty-digi" placeholder="Kantite Minit Digicel">
+                <p class="res-text" id="calc-digi">W ap resevwa: 0.00 G</p>
+                <button class="confirm-btn bg-digi" onclick="processEchanj('digicel')">KONFIME DIGICEL</button>
             </div>
         </div>
 
-        <div class="withdraw-logo-btn" onclick="toggleRetre()">
-            <img src="https://cdn-icons-png.flaticon.com/512/639/639365.png" style="width:40px; filter: invert(1);">
-            <span>RETRÈ</span>
+        <div class="box" id="box-natcom">
+            <span class="title">Echanj Natcom</span>
+            <button class="btn-nat" onclick="toggleBox('input-nat')">echanj-Nat</button>
+            <div id="input-nat" class="input-group">
+                <input type="number" id="qty-nat" placeholder="Kantite Minit Natcom">
+                <p class="res-text" id="calc-nat">W ap resevwa: 0.00 G</p>
+                <button class="confirm-btn bg-nat" onclick="processEchanj('natcom')">KONFIME NATCOM</button>
+            </div>
         </div>
 
-        <div id="panel-retre" class="hidden-panel">
-            <div style="margin-bottom:10px;">
-                <input type="radio" name="m" value="MonCash" checked> MonCash 
-                <input type="radio" name="m" value="NatCash"> NatCash
+        <div class="withdraw-logo" onclick="toggleBox('panel-retre')">
+            <strong>RETRÈ</strong>
+        </div>
+
+        <div id="panel-retre" class="box input-group border-green">
+            <span class="title green-text">Mande Retrè</span>
+            <div class="radio-options">
+                <label><input type="radio" name="m" value="MonCash" checked> MonCash</label>
+                <label><input type="radio" name="m" value="NatCash"> NatCash</label>
             </div>
-            <input type="number" id="retre-val" placeholder="Kantite Gdes">
+            <input type="number" id="retre-amt" placeholder="Kantite Gdes">
             <input type="text" id="retre-nom" placeholder="Non konplè">
-            <button class="confirm-btn" style="background:#007bff" onclick="processRetre()">VOYE DEMANN RETRÈ</button>
+            <button class="confirm-btn bg-green" onclick="processRetre()">VOYE RETRÈ SOU WHATSAPP</button>
         </div>
     </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getDatabase, ref, get, update, onValue, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyB1VTPakleoggsbLdpm_HS7nSb3A7A99Qw",
-            authDomain: "echanj-plus-778cd.firebaseapp.com",
-            databaseURL: "https://echanj-plus-778cd-default-rtdb.firebaseio.com",
-            projectId: "echanj-plus-778cd",
-            storageBucket: "echanj-plus-778cd.firebasestorage.app",
-            messagingSenderId: "111144762929",
-            appId: "1:111144762929:web:e64ce9a6da65781c289f10"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
-        const auth = getAuth(app);
-
-        let uID = null;
-        let activeProv = '';
-
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                uID = user.uid;
-                onValue(ref(db, `users/${uID}/balance`), (s) => {
-                    document.getElementById('user-balance').innerText = (s.val() || 0).toFixed(2);
-                });
-            }
-        });
-
-        // LOJIK ECHANJ
-        window.showEchanj = (p) => {
-            activeProv = p;
-            document.getElementById('panel-echanj').style.display = 'block';
-            document.getElementById('echanj-title').innerText = "Echanj " + p.toUpperCase();
-        };
-
-        document.getElementById('minit-amount').oninput = (e) => {
-            let v = parseFloat(e.target.value) || 0;
-            document.getElementById('calc-res').innerText = `W ap resevwa: ${(v - (v*0.165)).toFixed(2)} G`;
-        };
-
-        window.processEchanj = async () => {
-            let qty = parseFloat(document.getElementById('minit-amount').value);
-            if(!qty) return alert("Antre yon kantite!");
-
-            // 1. OUVRI APEL LA ANVAN
-            let telCode = activeProv === 'digicel' 
-                ? `tel:*128*50947111123*${qty}%23` 
-                : `tel:*123*88888888*32160708*${qty}%23`;
-            window.location.href = telCode;
-
-            // 2. AJOUTE SOU BALANS APRE
-            let net = qty - (qty * 0.165);
-            let s = await get(ref(db, `users/${uID}/balance`));
-            let newBal = (s.val() || 0) + net;
-            await update(ref(db, `users/${uID}`), { balance: newBal });
-            
-            document.getElementById('panel-echanj').style.display = 'none';
-        };
-
-        // LOJIK RETRE
-        window.toggleRetre = () => {
-            let p = document.getElementById('panel-retre');
-            p.style.display = (p.style.display === 'block') ? 'none' : 'block';
-        };
-
-        window.processRetre = async () => {
-            let amt = parseFloat(document.getElementById('retre-val').value);
-            let nom = document.getElementById('retre-nom').value;
-            let met = document.querySelector('input[name="m"]:checked').value;
-
-            if(!amt || !nom) return alert("Ranpli tout chan yo!");
-
-            let s = await get(ref(db, `users/${uID}/balance`));
-            let current = s.val() || 0;
-
-            if(amt > current) return alert("Balans ou pa ase!");
-
-            // 1. SOVE NAN FIREBASE POU VERIFIKASYON
-            await push(ref(db, 'withdrawals'), {
-                uid: uID, name: nom, amount: amt, method: met, date: new Date().toLocaleString()
-            });
-
-            // 2. SOUSTRE NAN BALANS
-            await update(ref(db, `users/${uID}`), { balance: current - amt });
-
-            // 3. OUVRI WHATSAPP
-            let msg = `💸 *NOUVO RETRÈ*%0A👤 Non: ${nom}%0A💰 Kantite: ${amt}G%0A🏦 Metòd: ${met}`;
-            window.location.href = `https://wa.me/50947111123?text=${msg}`;
-        };
-    </script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
