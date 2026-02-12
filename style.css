@@ -1,0 +1,140 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.main-logo {
+    width: 110px;
+    margin-bottom: 15px;
+}
+
+/* BALANS */
+.balance-card {
+    background: #111;
+    color: #00ff88;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #333;
+    display: flex;
+    flex-direction: column;
+}
+
+#user-balance {
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+.label {
+    font-size: 0.7rem;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+/* SEKSYON BOX */
+.box {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 18px;
+    margin-bottom: 15px;
+}
+
+.title {
+    font-weight: bold;
+    color: #444;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+/* BOUTON YO */
+.btn-digi { background: #ff0000; color: white; border: none; }
+.btn-nat { background: #ff8c00; color: white; border: none; }
+
+.btn-digi, .btn-nat {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+/* INPUTS */
+.input-group {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 1px solid #eee;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline-color: #28a745;
+}
+
+/* LOGO RETRÈ */
+.withdraw-logo {
+    background: #28a745;
+    color: white;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* COLORS HELPERS */
+.bg-digi { background: #cc0000; }
+.bg-nat { background: #e67e22; }
+.bg-green { background: #28a745; }
+.green-text { color: #28a745; }
+.border-green { border: 2px solid #28a745 !important; }
+
+.confirm-btn {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+
+.res-text {
+    font-weight: bold;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.radio-options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
